@@ -22,4 +22,5 @@ Route::prefix('api')->group(function(){
     Route::get('/references', [App\Http\Controllers\api\ReferencesController::class, 'index']);
     Route::get('/empolyees', [App\Http\Controllers\api\EmployeesController::class, 'index']);
     Route::get('/empolyees/store', [App\Http\Controllers\api\EmployeesController::class, 'store']);
+    Route::get('/overtimes', [App\Http\Controllers\api\OvertimeController::class, 'index']);
 });
