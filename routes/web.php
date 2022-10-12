@@ -1,26 +1,29 @@
 <?php
-
+use App\Http\Controllers\api\EmployeesController;
+use App\Http\Controllers\api\OvertimeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::prefix('api')->group(function(){
+Route::get('/employees-overtime', function () {
+    return view('overtime');
+});
+
+Route::get('/employees-overtime-calculated', function () {
+    return view('overtime_cal');
+});
+Route::prefix('api')->group(function () {
     Route::get('/references', [App\Http\Controllers\api\ReferencesController::class, 'index']);
-    Route::get('/empolyees', [App\Http\Controllers\api\EmployeesController::class, 'index']);
-    Route::get('/empolyees/store', [App\Http\Controllers\api\EmployeesController::class, 'store']);
-    Route::get('/overtimes', [App\Http\Controllers\api\OvertimeController::class, 'index']);
+    Route::controller(EmployeesController::class)->group(function () {
+        Route::get('/empolyees','index');
+        Route::post('/empolyee','store');
+    });
+    Route::controller(OvertimeController::class)->group(function () {
+        Route::get('/overtimes','index');
+        Route::post('/overtime','store');
+        Route::get('/overtime-pays','overtime_calculation')->name('overtime-pays');
+    });
 });

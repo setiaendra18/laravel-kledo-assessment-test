@@ -1,22 +1,19 @@
 <?php
 namespace App\Http\Controllers\api;
+
 use App\Http\Controllers\Controller;
 use App\Models\Employees;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-
 use Illuminate\Database\QueryException;
 
 class EmployeesController extends Controller
 {
     public function index()
     {
-        $empoyees = Employees::all();
-        $response = [
-            'message' => 'empolyees',
-            'data' => $empoyees,
-        ];
-        return response()->json($response, http_response_code(200));
+        $employees = Employees::all();
+       
+        return response()->json($employees, http_response_code(200));
     }
     public function store(Request $request)
     {

@@ -9,10 +9,6 @@ class ReferencesController extends Controller
     public function index()
     {
         $references= References::all();
-        $response = [
-            'message' => 'REFERENCES',
-            'data' => $references,
-        ];
-        return response()->json($response, http_response_code(200));
+        return response()->json($references, http_response_code(200));
     }
 }
