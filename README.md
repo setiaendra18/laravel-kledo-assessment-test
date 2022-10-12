@@ -51,8 +51,10 @@ POST http://127.0.0.1:8000/api/empolyee (store data employee)
 ```console
 GET http://127.0.0.1:8000/api/overtimes (Fetch all data employee)
 POST http://127.0.0.1:8000/api/overtimes (store data overtimes)
+GET http://127.0.0.1:8000/api/overtime-pays/calculated (not-fix)
 ```
 #### 3. REFERENCES
 ```console
 GET http://127.0.0.1:8000/api/references (Fetch all data references)
 ```
+

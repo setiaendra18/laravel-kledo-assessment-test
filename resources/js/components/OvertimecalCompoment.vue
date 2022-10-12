@@ -6,16 +6,11 @@
                     <div class="card-header">INPUT OVERTIMES EMPLOYEES</div>
                     <hr>
                     <form v-on:submit.prevent="submitForm">
-                       Select Employee : <select v-model="form.employee_id">
+                      Select Calculation Method : <select v-model="form.id">
                             <option disabled value="">Please select one</option>
-                            <option v-for="employee in employees" :key="employee.id" :value="employee.id">{{ employee.name }}</option>
+                            <option v-for="referensi in reff" :key="referensi.id" :value="referensi.id">{{referensi.name }}</option>
                         </select>
-                       
-                        <br>
-                       Pick Overtime Date : <input type="date" v-model="form.date" ><br>
-                       Pick Start Time : <input type="time" v-model="form.time_started"><br>
-                       Pick End Time :   <input type="time" v-model="form.time_ended"><br>
-                        <button type="submit">Save Data</button>
+                        <button type="submit">View Calculation</button>
                     </form>
                     <hr>
                     <table>
@@ -32,16 +27,8 @@
                                 <td> {{ overtime.date }}</td>
                                 <td> {{ overtime.time_started }}</td>
                                 <td> {{ overtime.time_ended }}</td>
-                                
                             </tr>
                         </table>
-                        <br>
-                        <div class="card-header">CALCULATED</div>
-                        {{ reff }}
-                        <!-- Select Method : <select v-model="reff">
-                            <option disabled value="">Please select one</option>
-                            <option v-for="item in reff" :key="item.id" :value="item.id">{{ item.name }}</option>
-                        </select> -->
                     <hr>
                 </div>
             </div>
@@ -56,10 +43,7 @@ export default {
             overtimes:[],
             reff:[],
             form: {
-                employee_id:  '',
-                date: '',
-                time_started: '',
-                time_ended: '',
+                id:  '',
             },
         }
     },
@@ -97,18 +81,7 @@ export default {
                 })
         },
         submitForm() {
-            console.log(this.form)
-             axios.post('http://127.0.0.1:8000/api/overtime', this.form)
-                 .then((res) => {
-                    var response=JSON.stringify(res.data);
-                    alert(response)
-                    this.getOvertimes()
-                 })
-                 .catch((error) => {
-                    var response=JSON.stringify(error);
-                    alert(response)
-                }).finally(() => {
-                });
+            alert('sorry , unfinish')
         },
     }
 }

@@ -24,6 +24,6 @@ Route::prefix('api')->group(function () {
     Route::controller(OvertimeController::class)->group(function () {
         Route::get('/overtimes','index');
         Route::post('/overtime','store');
-        Route::get('/overtime-pays','overtime_calculation')->name('overtime-pays');
+        Route::get('/overtime-pays/calculated','overtime_calculation')->name('overtime-pays');
     });
 });

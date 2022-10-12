@@ -48,7 +48,7 @@ export default {
         this.getEmployees()
     },
     methods: {
-        // fetch ada empoyee
+        
         getEmployees: function () {
             axios.get('http://127.0.0.1:8000/api/empolyees')
                 .then(res => {

@@ -46,8 +46,6 @@ class OvertimeController extends Controller
     {
         $overtime_cal = Overtimes::join('employees', 'employees.id', '=', 'overtimes.employee_id')
         ->get();
-;
-        dd($overtime_cal);
-        //return response()->json($overtime_cal, http_response_code(200));
+        return response()->json($overtime_cal, http_response_code(200));
     }
 }

@@ -5362,7 +5362,6 @@ __webpack_require__.r(__webpack_exports__);
     this.getEmployees();
   },
   methods: {
-    // fetch ada empoyee
     getEmployees: function getEmployees() {
       var _this = this;
       axios.get('http://127.0.0.1:8000/api/empolyees').then(function (res) {
@@ -5438,19 +5437,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -5459,10 +5445,7 @@ __webpack_require__.r(__webpack_exports__);
       overtimes: [],
       reff: [],
       form: {
-        employee_id: '',
-        date: '',
-        time_started: '',
-        time_ended: ''
+        id: ''
       }
     };
   },
@@ -5497,16 +5480,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     submitForm: function submitForm() {
-      var _this4 = this;
-      console.log(this.form);
-      axios.post('http://127.0.0.1:8000/api/overtime', this.form).then(function (res) {
-        var response = JSON.stringify(res.data);
-        alert(response);
-        _this4.getOvertimes();
-      })["catch"](function (error) {
-        var response = JSON.stringify(error);
-        alert(response);
-      })["finally"](function () {});
+      alert('sorry , unfinish');
     }
   }
 });
@@ -28740,7 +28714,7 @@ var render = function () {
               },
             },
             [
-              _vm._v("\n                   Select Employee : "),
+              _vm._v("\n                  Select Calculation Method : "),
               _c(
                 "select",
                 {
@@ -28748,8 +28722,8 @@ var render = function () {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.form.employee_id,
-                      expression: "form.employee_id",
+                      value: _vm.form.id,
+                      expression: "form.id",
                     },
                   ],
                   on: {
@@ -28764,7 +28738,7 @@ var render = function () {
                         })
                       _vm.$set(
                         _vm.form,
-                        "employee_id",
+                        "id",
                         $event.target.multiple
                           ? $$selectedVal
                           : $$selectedVal[0]
@@ -28777,87 +28751,19 @@ var render = function () {
                     _vm._v("Please select one"),
                   ]),
                   _vm._v(" "),
-                  _vm._l(_vm.employees, function (employee) {
+                  _vm._l(_vm.reff, function (referensi) {
                     return _c(
                       "option",
-                      { key: employee.id, domProps: { value: employee.id } },
-                      [_vm._v(_vm._s(employee.name))]
+                      { key: referensi.id, domProps: { value: referensi.id } },
+                      [_vm._v(_vm._s(referensi.name))]
                     )
                   }),
                 ],
                 2
               ),
               _vm._v(" "),
-              _c("br"),
-              _vm._v("\n                   Pick Overtime Date : "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.form.date,
-                    expression: "form.date",
-                  },
-                ],
-                attrs: { type: "date" },
-                domProps: { value: _vm.form.date },
-                on: {
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.form, "date", $event.target.value)
-                  },
-                },
-              }),
-              _c("br"),
-              _vm._v("\n                   Pick Start Time : "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.form.time_started,
-                    expression: "form.time_started",
-                  },
-                ],
-                attrs: { type: "time" },
-                domProps: { value: _vm.form.time_started },
-                on: {
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.form, "time_started", $event.target.value)
-                  },
-                },
-              }),
-              _c("br"),
-              _vm._v("\n                   Pick End Time :   "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.form.time_ended,
-                    expression: "form.time_ended",
-                  },
-                ],
-                attrs: { type: "time" },
-                domProps: { value: _vm.form.time_ended },
-                on: {
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.form, "time_ended", $event.target.value)
-                  },
-                },
-              }),
-              _c("br"),
-              _vm._v(" "),
               _c("button", { attrs: { type: "submit" } }, [
-                _vm._v("Save Data"),
+                _vm._v("View Calculation"),
               ]),
             ]
           ),
@@ -28884,15 +28790,6 @@ var render = function () {
               }),
             ],
             2
-          ),
-          _vm._v(" "),
-          _c("br"),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-header" }, [_vm._v("CALCULATED")]),
-          _vm._v(
-            "\n                    " +
-              _vm._s(_vm.reff) +
-              "\n                    "
           ),
           _vm._v(" "),
           _c("hr"),
